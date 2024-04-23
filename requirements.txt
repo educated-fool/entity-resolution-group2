@@ -1,2 +1,4 @@
-import pandas as pd
-import recordlinkage
+pandas==2.2.1
+numpy==1.16.4
+recordlinkage==0.16
+thefuzz==0.22.1
