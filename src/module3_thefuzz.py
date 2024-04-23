@@ -6,8 +6,8 @@ import re
 
 def thefuzz_pipeline(left_df, right_df, output_csv):
     # Fill missing values
-    left_df['address'].fillna('', inplace=True)
-    left_df['postal_code'].fillna('00000', inplace=True)
+    left_df['address'] = left_df['address'].fillna('')
+    left_df['postal_code'] = left_df['postal_code'].astype(str).fillna('00000')
 
     def preprocess_data(df):
         df['state'] = df['state'].astype(str).str.strip()
@@ -20,7 +20,7 @@ def thefuzz_pipeline(left_df, right_df, output_csv):
     left_df = preprocess_data(left_df)
     right_df = preprocess_data(right_df)
 
-    #deal with postcode problem
+    #deal with postercode problem
     left_df['postal_code'] = left_df['postal_code'].astype(str).apply(lambda x: x.split('.')[0])
     right_df['zip_code'] = right_df['zip_code'].astype(str).apply(lambda x: x.split('-')[0].zfill(5))
 
