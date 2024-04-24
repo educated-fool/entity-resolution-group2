@@ -4,3 +4,4 @@ recordlinkage==0.16
 thefuzz==0.22.1
 textdistance==4.6.1
 dedupe==2.0.23 # Recommended to be installed in a new virtual environment
+splink==3.9.14
